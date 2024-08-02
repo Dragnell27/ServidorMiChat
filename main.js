@@ -173,7 +173,7 @@ function login(nameUser, passUser) {
     formData.append('passUser', passUser)
 
     return new Promise((resolve, reject) => {
-        fetch('http://localhost/miChat/api/APIs/verifyExistingUser.php', {
+        fetch('http://elchatdetodos.free.nf/APIs/verifyExistingUser.php', {
             method: 'POST',
             body: formData
         })
@@ -195,7 +195,7 @@ function guardarUsuarioEnServidor(nameUser, passUser) {
     formData.append('passUser', passUser)
 
     return new Promise((resolve, reject) => {
-        fetch('http://localhost/miChat/api/APIs/saveUser.php', {
+        fetch('http://elchatdetodos.free.nf/APIs/saveUser.php', {
             method: 'POST',
             body: formData
         })
