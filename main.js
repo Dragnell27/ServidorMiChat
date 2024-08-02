@@ -13,14 +13,12 @@ app.use(cors())
 const io = new Server(server, {
     cors: {
         // origin: "http://localhost",
-        origin: "*",
-        methods: ["GET", "POST"],
-        allowedHeaders: ['my-custom-header'],
-        credentials: true
+        origin: "*"
     }
 })
 
 io.on('connection', (socket) => {
+    console.log('Un usuario conectado'+socket.id)
     socket.on('newRegister', (datos) => {
         login(datos.user, datos.password).then(data => {
             data = JSON.parse(data)
@@ -173,7 +171,7 @@ function login(nameUser, passUser) {
     formData.append('passUser', passUser)
 
     return new Promise((resolve, reject) => {
-        fetch('http://elchatdetodos.free.nf/APIs/verifyExistingUser.php', {
+        fetch('https://michat-production-a5c7.up.railway.app/APIs/verifyExistingUser.php', {
             method: 'POST',
             body: formData
         })
@@ -195,7 +193,7 @@ function guardarUsuarioEnServidor(nameUser, passUser) {
     formData.append('passUser', passUser)
 
     return new Promise((resolve, reject) => {
-        fetch('http://elchatdetodos.free.nf/APIs/saveUser.php', {
+        fetch('https://michat-production-a5c7.up.railway.app/APIs/saveUser.php', {
             method: 'POST',
             body: formData
         })
