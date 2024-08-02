@@ -1,13 +1,13 @@
 {
+  "name": "servidormichat",
   "version": "1.0.0",
+  "description": "A simple Socket.IO server",
   "main": "main.js",
-  "type": "module",
   "scripts": {
-    "dev": "node --watch ./server/main.js"
+    "start": "node main.js"
   },
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.19.2",
-    "socket.io": "4.7.2"
+    "express": "^4.17.1",
+    "socket.io": "^4.0.0"
   }
 }
